@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>One Little Question ❤️</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      background: white;
+      padding: 45px 30px;
+      border-radius: 25px;
+      width: min(90%, 450px);
+      box-shadow: 0 10px 35px #00000020;
+    }
+
+    .heart {
+      font-size: 65px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #e84367;
+      font-size: 28px;
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      min-height: 50px;
+    }
+
+    button {
+      border: none;
+      padding: 14px 30px;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #yes {
+      background: #ff4d79;
+      color: white;
+    }
+
+    #no {
+      background: #eeeeee;
+      color: #444;
+    }
+
+    #message {
+      margin-top: 25px;
+      font-size: 20px;
+      color: #e84367;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+   <h1> I HAVE ONE QUESTION FOR YOU!!</h1>
+    <div class="heart">💖</div>
+    <h1 id="headline">Will You Take Me On Date ? 🥹</h1>
+
+    <div class="buttons">
+      <button id="yes" onclick="sayYes()">YES ❤️</button>
+      <button id="no">NO 🙈</button>
+    </div>
+
+    <div id="message"></div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+
+    function moveNoButton() {
+      const padding = 15;
+      const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+      const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+
+      noBtn.style.position = "fixed";
+      noBtn.style.left 
+        Math.max(padding, Math.random() * maxX) + "px";
+      noBtn.style.top =
+        Math.max(padding, Math.random() * maxY) + "px";
+    }
+
+    noBtn.addEventListener("mouseenter", moveNoButton);
+
+    // Also make it playful on touchscreens
+    noBtn.addEventListener("touchstart", function (event) {
+      event.preventDefault();
+      moveNoButton();
+    });
+
+    function sayYes() {
+      document.getElementById("headline").innerText =
+        "Yayyy! You made me so happy! 🥰";
+      document.getElementById("message").innerText =
+        "I knew you'd say YES! ❤️🎉";
+      document.querySelector(".heart").innerText = "😍💖";
+      noBtn.style.display = "none";
+    }
+  </script>
+</body>
+</html>
